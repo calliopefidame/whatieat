@@ -1,5 +1,5 @@
 const app = require('express')();
-const http = require('http').createServer(credentials, app);
+const http = require('http').createServer(app);
 const cors = require('cors');
 
 app.use(cors());
@@ -13,6 +13,6 @@ app.use('/steam', steam);
 var person = require('./routes/person');
 app.use('/person', person);
 
-http.listen(443, () => {
-    console.log('listening on 443');
+http.listen(3000, () => {
+    console.log('listening on 3000');
 })
