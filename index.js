@@ -15,6 +15,6 @@ app.use('/person', person);
 var test = require('./routes/test');
 app.use('/test', test);
 
-http.listen(3000, () => {
-    console.log('listening on 3000');
+http.listen(80, () => {
+    console.log('listening on 80');
 })
