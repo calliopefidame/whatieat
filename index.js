@@ -1,6 +1,7 @@
 const app = require('express')();
 const http = require('http').createServer(app);
 const cors = require('cors');
+const PORT = 3000;
 
 app.use(cors());
 
@@ -15,6 +16,6 @@ app.use('/person', person);
 var test = require('./routes/test');
 app.use('/test', test);
 
-http.listen(80, () => {
-    console.log('listening on 80');
+http.listen(PORT, () => {
+    console.log('listening on ' + PORT);
 })
