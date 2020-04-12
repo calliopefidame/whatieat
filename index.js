@@ -1,13 +1,11 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const http = require('http').createServer(app);
 const cors = require('cors');
 const PORT = 3000;
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-    res.send('hello world');
-});
+app.use(express.static('public'));
 
 var steam = require('./routes/steam');
 app.use('/steam', steam);
