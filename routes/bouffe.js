@@ -10,12 +10,12 @@ bouffe.post('/', (req, res) => {
     var repas = req.body.repas;
     var typeNombreBouffe = req.body.typeNombreBouffe;
 
-    console.log(bouffe + ';' + nombreBouffe + ';' + repas);
+    console.log(bouffe + ';' + nombreBouffe + ';' + repas + ';' + typeNombreBouffe);
 
     database.query('insert into bouffe(`bouffe`,`nombreBouffe`,`repas`,`typeNombreBouffe`,`date`) values("' + bouffe + '", "' + nombreBouffe + '", "' + repas + '", "' + typeNombreBouffe + '", "' + new Date().toISOString().slice(0, 19).replace('T', ' ') + '");', (mysqlErr, mysqlRes, fields) => {
-        if (mysqlErr) {
-            res.send(mysqlErr).status(500);
-        }
+        if (mysqlErr) res.send(mysqlErr).status(500);
+
+        console.log(mysqlRes);
         res.send(mysqlRes).status(200);
     })
 });
